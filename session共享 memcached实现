@@ -1,0 +1,11 @@
+
+1.  把 memcached-session-manager-1.9.3.jar  和 memcached-session-manager-tc7-1.9.3.jar
+放到 tomcat lib 下
+
+2、修改 tomcat/conf/context.xml
+添加 
+
+<Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+   	          memcachedNodes="10.9.19.70:11211"
+    	                   sticky="true"/>
+
