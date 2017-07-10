@@ -1,0 +1,52 @@
+mysql  5.6 online ddl
+mysql 5.6根据 是否修改记录格式，把ddl 分成两类 rebuild ,no-rebuild。是否修改表结构
+
+1.rebuild  需要重建表  
+
+optimize table(优化表), 添加索引，添加列，删除列，修改列 null/not null属性等
+2、no-rebuild  只需要修改表的元数据
+删除索引，修改列名，修改列默认值，修改列自增值等
+
+oline  ddl 分成三个阶段
+prepare, ddl执行，commit阶段
+
+rebuild 方式比 no-rebuild方式多了一个ddl执行阶段
+
+查看sql 状态 
+select * from `information_schema`.processlist where id=655153301;
+
+查看所有在运行的sql 
+select processlist;
+
+程序员笔记   网站
+
+第一个TIMESTAMP列之后的其他的TIMESTAMP类型的列，如果没有指定null属性，也没有指定默认值，那么该列会被自动加上DEFAULT '0000-00-00 00:00:00'属性。如果insert语句中没有为该列指定值，那么该列中插入'0000-00-00 00:00:00'，并且没有warning
+
+表中的第一个TIMESTAMP列，如果没有指定null属性或者没有指定默认值，也没有指定ON
+UPDATE语句。那么该列会自动被加上DEFAULT CURRENT_TIMESTAMP和ON UPDATE
+CURRENT_TIMESTAMP属性。
+
+mysql
+drop table ,如果一个表是没有查询的。 那么删除表动作会非常快。
+翔总说是 表级排他锁。
+
+删除一个大表的部分数据方案
+创建一个和新表一毛一样的表，然后把要保留的数据 复制到新表中，然后重命名。
+
+然后再删除旧表。 秒删。 
+
+上面的方案，在执行前，问了下我们的我们的无敌无敌DBA大神 ，翔总
+
+翔总推荐了一个专业工具  percona-toolkit ，中的 pt-archiver 
+
+不知道这是什么就去官网看了一下
+照着官网安装教程就安装了一下 
+
+https://www.percona.com/doc/percona-toolkit/LATEST/installation.html
+Red Hat or CentOS 部分。 
+顺利安装,然后找到yum 的安装目录。 
+/etc/目录下，执行删除数据命令  
+pt-archiver --source h=10.45.9.172,D=c9_dev,t=cs_order_archiver --user=c9_dev --password=mysqlc9_dev --purge --where 'id<=10000'
+
+
+
