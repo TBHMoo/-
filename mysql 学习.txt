@@ -50,3 +50,6 @@ pt-archiver --source h=10.45.9.172,D=c9_dev,t=cs_order_archiver --user=c9_dev --
 
 
 
+insert into XXX_table select * from XXX_table ; 
+用于造大量测试数据。 
+
