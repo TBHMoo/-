@@ -6,6 +6,6 @@
 添加 
 
 <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
-   	          memcachedNodes="10.9.19.70:11211"
+   	          memcachedNodes="110.xxxx.xxx.xx:11211"
     	                   sticky="true"/>
 
