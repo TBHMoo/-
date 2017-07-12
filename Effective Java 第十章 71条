@@ -1,3 +1,13 @@
 1、延迟初始化 ，是延迟到需要域的值时才将它初始化的这种行为。 如果永远不需要这个值，这个域就永远都不会被初始化。
 2、对于延迟初始化，最好建议“除非绝对必要，否者就不要这么做”。 延迟初始化就像一把双刃剑，它降低了初始化类或者创建实例的开销，却增加了访问被
 延迟初始化的域的开销。
+3、对静态域使用延迟初始化，使用lazy initialization holder class 模式
+这种模式保证了类要被用到的时候才会被初始化，
+//Lazy initialization holder class idiom for static fields
+private static class FieldHolder{
+    static final FieldType field = computeFieldValue();
+}
+
+static FieldType getField(){ return FiledHolder.field; }
+
+当 getField方法第一次被调用时，它第一次读取FieldHolder.field, 导致FieldHolder类得到初始化。
