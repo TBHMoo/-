@@ -34,3 +34,23 @@ volatile  修饰符，因为不执行互斥访问，可能会导致 [安全性�
 未能同步共享可变数据会造成程序的【活性失败】(liveness failure) 和【安全性失败】（safety failure）. 这样的失败是最难调试的， 它们可能是间歇性的
 且与实践相关，程序的行为在不同的VM上，可能根本不同 如果只需要线程之间互相通信，而不需要互斥，volatile 修饰符就是一种可以接受的同步形式 但是要正确地
 使用它可能需要一些技巧 
+
+68条，executor 和 task 优先于线程
+ExecutorService executor = Executors.newSingleThreadExecutor();
+executor.execute(runnable);
+executor.shutdown();
+
+executor还可以做更多的事。
+
+需要多个线程来处理的时候，就使用线程池。
+如果是轻载的服务器，使用 Executors.newCachedThreadPool 是不错的选择。但是如果负载很重，就不合适了，在缓存的线程池中，被提交的任务没有排成队列，
+而是直接交给线程执行，如果没有线程可用，就创建一个新的线程。 这个策略会在CPU被完全占用的情况下，加重CPU的负担。
+因此在大负载的产品服务器中，最好使用Executors.newFixedThreadPool 。它提供了一个固定大小的线程池。
+
+
+
+
+
+
+
+
