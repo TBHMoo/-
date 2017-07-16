@@ -1,0 +1,33 @@
+第45条 将局部变量的作用域 最小化
+在第一次使用变量的情况下，才声明变量。过早的声明不利于阅读程序，也使得变量的生命周期过长。
+如果在循环终止之后不再需要循环变量的内容， for循环就优先于 while循环
+  第46条 ： for-each 循环优先于 for循环
+  
+ for-each 和   for 的小区别
+  enum Face{ ONE, TWO, THREE, FOUR, FIVE, SIX }
+  Celloection<Face> faces = Arrays.asList{Face.values}
+  for(Iterator<Face> i =faces.iterator(); i.hasNext(); )
+    for(Iterator<Face> j = faces.iterator(); j.hasNext(); ){
+      System.out.println(i.next() + " " + j.next());
+    }
+
+预期看到 36中组合，但是实际只会看到 6中组合。
+
+for(Face face:faces){
+  for(Face face2:faces){
+    System.out.println(face,face2);
+  }
+}
+
+for-each 可以遍历实现了Iterable 的接口。
+
+三种情况不适用 for-each
+1、过滤，   如果需要遍历集合，并删除选定的元素，就需要使用显式的迭代器，以便可以调用它的remove方法
+2、转换，   如果需要遍历列表或者数组， 并取代它部分的值或者全部的值，就需要使用到列表迭代器，或者数组索引，以便设定元素的值
+3、平行迭代，  6种组合例子
+
+
+
+
+
+
