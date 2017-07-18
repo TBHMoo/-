@@ -8,6 +8,7 @@ shell script 注意事项
 
 执行Shell的方式
 
+
 shell.sh 必须要有 可读与可执行 (rx) 的权限
 
 1、直接指令下达，  绝对路径，相对路径，或者 变量【PATH】 指定的目录中。
@@ -19,6 +20,7 @@ bash shell.sh
 sh shell.sh
 
 
+
 hello world shell
 
 mkdir bing; cd bin
@@ -27,6 +29,7 @@ vim hello.sh
 
 #!/bin/bash  指定 script 使用的 shell 名称
 PAHT=/bin:/sbin:/usr/bin:/usr/sbin:~/bin
+
 export PATH
 echo -e "Hello world!\a \n"
 exit 0
@@ -39,6 +42,7 @@ chmod a+x hello.sh;sh hello.sh
 编写script 的工具最好使用 vim  而不是 vi .因为 vim 会有额外的语法检验机制
 
 
+
 简单shell script 练习
 
 一个输入的 shell  
@@ -47,6 +51,7 @@ vim showname.sh
 #!/bin/bash
 read -p "please input your firstname:" firstname
 read -p "please input your lastname:" lastname
+
 echo -e "your full name is :${firstname} ${lastname}"
 
 ：wq
@@ -86,8 +91,7 @@ test -e /xx && echo "exist" || echo "Not exist"
 -s 存在且为  非空白文件
 
 两个文件之间的比较  test file1 -nt file2
--nt  file1比file2新
--ot  老
+-nt  file1比file2新-ot  老
 -ef  同
 
 两个整数之间的判断 test n1 -eq n2
@@ -98,29 +102,29 @@ test -e /xx && echo "exist" || echo "Not exist"
 -ge  大于等于
 -le  小于等于
 
+
 判断字符串的数据
 test -z string 字符串是否为0 
-test -n string  字符串是否为 非0
-test str1 == str2 ，判断 str1是否等于str2 ,相等返回true
+test -n string  字符串是否为 非0test str1 == str2 ，判断 str1是否等于str2 ,相等返回true
 test str1 != str2 ， 判断str1是否不等于 str2,相等返回false
 
 多重条件判断  test -r filename -a -x filename
 -a  and
 -o  or
+
 !  反
 
 小练习，一个输入文件名，
-判断文件存在不存在
-区分文件类型（文件或者目录）
+判断文件存在不存在区分文件类型（文件或者目录）
 用户所拥有这个文件的权限有哪些
 
 #!/bin/bash
 echo -e "Please input a filename ,i will check the filename's type and permission.\n\n"
+
 read -p "input a filename : " filename
 test -z ${filename} && echo "you must input a filename." && exit 0
 
 test ! -e ${filename} && echo "The filename '${filename}' DO NOT exist" && exit 0
-
 test -f ${filename} && filetype="regulare file"
 test -d ${filename} && filetype="direcroty"
 test -r ${filename} && perm="readable"
@@ -153,7 +157,12 @@ echo "I don't know what your choice is" && exit 0
 
                                                   
 
-
+shell  默认参数 
+/path/shell.sh  opt1  opt2  opt3 
+${0}            ${1}   ${2}  ${3}
+$# 表示参数个数，这里是3
+$@ 表示所有参数，这里是 “opt1  opt2 opt3”
+shift  1  表示参数左移一个， 既剩下opt2 opt3
 
 
 
