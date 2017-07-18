@@ -1,0 +1,86 @@
+第十二章 ，学习 Shell Scripts
+
+shell script 注意事项
+
+1、如果读取到一个   Enter 符号（CR）,就尝试开始执行该行，或该串命令
+2、[\Enter]来换行
+3、# 注释
+
+执行Shell的方式
+
+shell.sh 必须要有 可读与可执行 (rx) 的权限
+
+1、直接指令下达，  绝对路径，相对路径，或者 变量【PATH】 指定的目录中。
+
+./shell.sh
+/home/shell.sh
+2、bash 程序来执行   
+bash shell.sh
+sh shell.sh
+
+
+hello world shell
+
+mkdir bing; cd bin
+
+vim hello.sh
+
+#!/bin/bash  指定 script 使用的 shell 名称
+PAHT=/bin:/sbin:/usr/bin:/usr/sbin:~/bin
+export PATH
+echo -e "Hello world!\a \n"
+exit 0
+
+chmod a+x hello.sh;./hello.sh
+或者
+chmod a+x hello.sh;sh hello.sh
+执行
+
+编写script 的工具最好使用 vim  而不是 vi .因为 vim 会有额外的语法检验机制
+
+
+简单shell script 练习
+
+一个输入的 shell  
+mkdir xx;cd xx
+vim showname.sh
+#!/bin/bash
+read -p "please input your firstname:" firstname
+read -p "please input your lastname:" lastname
+echo -e "your full name is :${firstname} ${lastname}"
+
+：wq
+chmod a+x showname.sh
+./showname.sh
+
+建立空文件
+touch "${filename}"
+
+数值运算
+var=$(运算内容)
+例子  var=$(($(firstnu)*$(secnu)))
+
+有小数点的计算   bc
+echo "123.123*55.9" | bc回车
+6882.575
+
+
+script的执行方式差异
+利用直接执行的方式来执行的script ,当子程序完成后，在子程序内的各项变量或者动作将会结束而不会传回到父程序中。  局部变量概念
+
+利用source 来执行脚本，在父程序中执行 ，脚本中定义的变量，依然存在。 全局变量概念
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
