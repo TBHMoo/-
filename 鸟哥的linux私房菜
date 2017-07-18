@@ -109,8 +109,7 @@ test -n string  字符串是否为 非0test str1 == str2 ，判断 str1是否等
 test str1 != str2 ， 判断str1是否不等于 str2,相等返回false
 
 多重条件判断  test -r filename -a -x filename
--a  and
--o  or
+-a  and-o  or
 
 !  反
 
@@ -120,7 +119,6 @@ test str1 != str2 ， 判断str1是否不等于 str2,相等返回false
 
 #!/bin/bash
 echo -e "Please input a filename ,i will check the filename's type and permission.\n\n"
-
 read -p "input a filename : " filename
 test -z ${filename} && echo "you must input a filename." && exit 0
 
@@ -164,8 +162,18 @@ $# 表示参数个数，这里是3
 $@ 表示所有参数，这里是 “opt1  opt2 opt3”
 shift  1  表示参数左移一个， 既剩下opt2 opt3
 
-
-
+条件判断  if [];then
+          fi
+          
+vim helle.sh
+#!/bin/bash
+if [ "${1}" == "hello" ]; then
+    echo "Hello ,how are you"
+elif [ "${1}" == "" ]; then
+    echo "You MUST input parameters, ex> {${0} someword}"
+else 
+    echo "The only parameter is 'hello' , ex> {${0} hello}"
+fi
 
 
 
