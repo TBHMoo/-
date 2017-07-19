@@ -1,0 +1,31 @@
+背景、  有个基础数据表中唯一的数据，出现了重复数据。因为空值的原因，当初的唯一空值，放在了 应用上。 这个时候会因为事务没有递交的原因。
+并发插入同一批数据两次，
+
+解决、  前端加按钮间隔，足以解决这个问题
+
+数据清理思路
+找出所有重复数据中的最小id,作为一个待删除集合，然后删除。
+
+delete from `cs_project_aging`   where `ID` in  (
+    select s.min_id from (                    //这一层很重要。mysql 和其他数据库不同的地方。
+        SELECT 
+            MIN(id) AS min_id
+        FROM
+            `cs_project_aging` t 
+        where t.`aging_name`  = 'MKT-浙江菜鸟产业园项目'
+        GROUP BY t.`aging_name` ,t.`SEND_PROVINCE` ,t.`SEND_CITY` ,t.`RECEIVE_PROVINCE` ,t.`RECEIVE_CITY` ,t.`AGING` 
+        HAVING COUNT(*) > 1 ) s ) ;
+        
+        
+学到了，学到了
+1、使用 group by 把重复数据聚合，然后筛选聚合数据。使用  having  关键字。   group by 之后的筛选，使用 having 关键字
+
+在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。
+
+2、另外这里有个坑， 开始写的 删除sql 版本是，没有第10 行那一层的中间表，MySQL报错，
+ 【You can't specify target table 'cs_project_aging' for update in FROM clause】
+ 
+这个报错的原因，就是，mysql不允许
+在同一个语句中，先select出同一表中的某些值，再update,delete这个表。
+所以改成了，从表A  select 出最小id 集合， 包了一成临时表B，最外层 delete 表A上的数据，依据临时B中的数据筛选。
+
