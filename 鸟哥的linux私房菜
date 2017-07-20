@@ -234,6 +234,10 @@ sh -x hello.sh
 可以把执行过程都打印出来， 用来调试shell .
 
 
+grep命令 使用。
+grep -C 2 -E 'abc|ttt'
+查找出现abc 或者 ttt 的行，上下两行显示出来。
+
 
 
 
