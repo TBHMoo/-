@@ -54,7 +54,9 @@ insert into XXX_table select * from XXX_table ;
 用于造大量测试数据。 
 测试库，删除1000w 数据使用了 22h
 
-
+ pt-archiver --source h=hx-mysql-p1.800best.com,D=c9_dev,t=cs_order_archiver --user=c9_dev --password=mysqlc9_dev --purge    --where 'id<=37669832' --no-check-charset
+ --limit 1000 --commit-each
+ --progress 2000 --statistics
 
 
 
