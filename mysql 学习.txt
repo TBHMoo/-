@@ -58,6 +58,7 @@ insert into XXX_table select * from XXX_table ;
  --limit 1000 --commit-each
  --progress 2000 --statistics
 
+在线修改表结构时， --no-delete  ，不删除原表
 
 
 
