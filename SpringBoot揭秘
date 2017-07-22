@@ -1,1 +1,17 @@
-Spring框架诞生于 “黑暗”的EJB1的时代， 如果你没有听说过，那么恭喜你，说明你还年轻~ 
+
+Spring框架诞生于 “黑暗”的EJB1的时代， 如果你没有听说过，那么恭喜你，说明你还年轻
+
+Spring IoC 其实很简单
+IoC (Inversion Of Control ) 和 DI(Dependecy Injection) 的概念并不是对等的。  IoC 其实有两种方式，一种是DI，一种就是DL （Dependecy Lookup）
+IoC ----DL   收集和注册bean
+    |
+    ----DI   分析已经收集注册好的bean 之间的依赖关系，然后组装他们（通过xml , 或者 annotation @Autowired）
+    
+    
+JavaConfig
+@Configuration
+@Bean
+@ComponetScan  不指定  basePackages的 话，默认从@ComponetScan所在类的pagekage进行扫描
+@PropertySource 和 @PropertySources
+@Import  在xml形式中，我们通过<import resource="xxx.xml"/> 的形式将多个分开的容器配置合到同一个配置中， 在JavaConfig中对应 @Import
+@ImportResource 用于配置遗留的需要用 xml形式配置的  比如(dubbo 框架)
