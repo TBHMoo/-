@@ -61,6 +61,9 @@ insert into XXX_table select * from XXX_table ;
 在线修改表结构时， --no-delete  ，不删除原表
 
 
+删除文件之前 先备份。
+
+
 
 
 
