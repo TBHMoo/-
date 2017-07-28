@@ -1,0 +1,26 @@
+create procedure proce1(sitename varchar2, sss number) as
+begin
+  update ge_sys_site set udf1 = '2' where site_name = sitename;
+end;
+
+exec proce1('西湖一部',2222);
+
+select t.site_name,t.udf1 from ge_sys_site t where t.site_name = '西湖一部';
+
+--------------------------------------------------------------
+create procedure proce2(input in number, output out varchar2) is
+begin
+       select * into output from dual ;
+  end;
+
+-----------------------------------------------
+  declare 
+       output2 varchar2(10):='';
+      begin
+               proce2(1,output2);
+              dbms_output.put_line('output2='||output2);  // 在sql tab 的下一个
+  end;
+  
+  
+  tips:
+      1. 查询必须通过 output参数不能少
