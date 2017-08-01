@@ -24,3 +24,4 @@ hashmap 实现原理  散列。
 zeekeeper 在dubbo中的角色   元数据保存
 dubbo 简单原理。
 
+http://www.coolshell.cn/articles/17416.html  缓存的几种策略。
