@@ -3,3 +3,13 @@
 3. [spring 开源中国](https://www.oschina.net/p/spring)
 4. [Spring Framework 5.0.0.M2 API](http://docs.spring.io/spring/docs/5.0.0.M2/javadoc-api/)
 5. [spring framework 2.5.2全中文doc](http://shouce.jb51.net/spring/index.html)
+
+
+@PostConstruct 
+这个注解在bean 的创建后，执行初始化方法，一般用来修饰初始化数据的方法。
+  @PostConstruct
+    private void init() {
+        initProjectConfigures();
+    }
+这是xml 版本 
+ <bean id="exampleInitBean" class="examples.ExampleBean" init-method="init"/>
