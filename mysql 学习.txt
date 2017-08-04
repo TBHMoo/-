@@ -100,8 +100,18 @@ from information_schema.partitions t
 删除文件之前 先备份。
 
 
+#############################################################
+Lock wait timeout exceeded; try restarting transaction
 
+错误原因是 innoDB 默认锁等待超时时间是 50s，有的锁等待超时了。   
+解决， 
+1、可以加长这个时间
+my.ini文件：
+#innodb_lock_wait_timeout = 50
+-》
+innodb_lock_wait_timeout = 500
 
+2、避免事务时间过长。  （把接口调用方式改成了异步调用）
 
 
 
