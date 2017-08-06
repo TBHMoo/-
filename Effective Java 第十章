@@ -68,7 +68,7 @@ executor还可以做更多的事。
 
 69条，并发工具优先于wait 和 notify
 既然正确的使用 wait和 notify比较困难，就应该使用更高级的并发工具来代替。
-java.util.concurrent 中更高级的工具分成三类： Executor Framework 、并发集合(Concurrent collection)
+java.util.concurrent 中更高级的工具分成三类： Executor Framework (任务执行框架)、并发集合(Concurrent collection)
 、以及同步器 （Synchronizer） 
 
 并发集合为标准的集合接口，提供高效的并发实现。 为了提高并发性，这些实现在内部自己管理同步。因此，并发集合中不可能排除并发活动，将它锁定没什么作用，反而会
