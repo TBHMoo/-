@@ -107,7 +107,8 @@ Future 表示一个任务的生命周期，并提供了相应的方法来判断�
 Future规范中包含的隐含意义是， 任务的生命周期只能前进，不能后退，就像ExecutorService 的生命周期一样。
 
 
-
+http://download.oracle.com/technetwork/java/javase/6/docs/zh/api/java/util/concurrent/package-summary.html
+并发包
 
 
 
