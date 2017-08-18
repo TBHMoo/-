@@ -99,7 +99,7 @@ blockingQueue 的最佳实现是什么。
  这些线程在等待着把元素加入或者移出队列。
 
 
-threadLocal 作用和用途？
+threadLocal 的作用是什么？ 什么场景下使用ThreadLocal
 
 cookie 和 session 的作用和区别。 tomcat 中的  session 管理怎么实现的
 
@@ -140,7 +140,8 @@ ReentrantLock  默认也是非公平锁，但是可以在声明时通过构造�
  aop 主要是把业务分离出来， 比如日志处理。多条业务线，都需要日志。有了AOP 就可以在多条业务线上统一加上日志处理的逻辑。
  
  
-
+ spring 事务传播性 主要是为了解决什么问题。
+ 为了解决事务一致性
 
 
 
