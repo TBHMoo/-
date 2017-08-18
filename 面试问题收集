@@ -88,10 +88,39 @@ Hr 关心综合素质，学习能力，性格，业余生活。
 技术面， 反向面试 。 照实说就行
 CTO  从业务角度上描述上一家公司的系统。 然后问觉得遇到的最大的挑战，这里没有准备好。
 
+铱云科技
+笔试题
+java 框架中的集合最优实现是什么？并说明原因？
+
+blockingQueue 的最佳实现是什么。
+  LinkedBlockingQueue和 ArrayBlockingQueue 是 FIFO队列。 
+  PriorityBlockingQueue是一个优先队列。 
+ 最后一个实现BlockingQueue是 SynchronousQueue 实际上它不是一个真正的队列，因为它不会为队列中的元素维护存储空间。 于其他队列不同的是，它维护一组线程
+ 这些线程在等待着把元素加入或者移出队列。
 
 
+threadLocal 作用和用途？
 
+cookie 和 session 的作用和区别。 tomcat 中的  session 管理怎么实现的
 
+AutomicInterger 是阻塞的吗？ jdk 中的实现是什么 
+CAS 实现 ，不阻塞
+
+lamda 表达式的作用？
+简洁的可传递的匿名函数的一种方式，lamda只是让匿名函数可读性更强，写得更轻松。
+
+concurrentHashMap 中解决链表过长的方式
+
+ Lock 和 synchronized 的区别。
+ 
+ 秒杀系统，
+ 
+ 缓存系统
+ 
+ 脱离数据库实现ID。 单数据库，应用集群。
+ 
+ 
+ 
 
 
 
