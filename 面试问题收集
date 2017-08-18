@@ -70,7 +70,7 @@ zset 成员是唯一的，但是分数（score）却可以重复
 
 zadd 命令
 zadd key score member
-
+  
 >zadd key 0 redis
 (interger) 1
 > zadd key 0 mongodb
@@ -103,6 +103,7 @@ threadLocal 作用和用途？
 
 cookie 和 session 的作用和区别。 tomcat 中的  session 管理怎么实现的
 
+
 AutomicInterger 是阻塞的吗？ jdk 中的实现是什么 
 CAS 实现 ，不阻塞
 
@@ -110,9 +111,24 @@ lamda 表达式的作用？
 简洁的可传递的匿名函数的一种方式，lamda只是让匿名函数可读性更强，写得更轻松。
 
 concurrentHashMap 中解决链表过长的方式
+  resize 数组，增加数组长度，来降低拉链过长的影响。
 
  Lock 和 synchronized 的区别。
- 
+
+synchronized 是悲观的锁策略，Lock （ReentrantLock） 是乐观的锁策略。
+Lock  基于 CAS 实现。
+基本语法上，ReentrantLock 和 synchronized 很相似，都具备线程重入特性。 
+1.5之前 ReentrantLock 比 synchronized  性能好很多， 1.6  synchronized 加了很多优化，性能没什么差别。
+官方也更支持 synchronized  因为 ReentrantLock 必须显式的释放。
+ReentrantLock 比 synchronized 增加的高级功能
+1、 等待可中断：当持有锁的线程长期不释放锁时，正在等待的线程可以选择放弃等待，处理其他事情。它对执行时间非常长的同步块非常有用。
+而在等待由Synchronized产生的互斥锁时，会一直阻塞，是不能被中断的
+2、 ReentrantLock 可实现公平锁： 多个线程等待同一个锁时，必须按照申请锁的时间排序等待，然而非公平锁不保证锁在释放时，不保证等待线程获得锁的顺序。
+ReentrantLock  默认也是非公平锁，但是可以在声明时通过构造方法 ReentrantLock (true) 来实现公平锁
+
+3、ReentrantLock 锁和条件的关系 可以一对多。 synchronized 锁和条件的关系是一对一。 
+
+
  秒杀系统，
  
  缓存系统
