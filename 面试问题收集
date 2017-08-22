@@ -91,6 +91,16 @@ CTO  从业务角度上描述上一家公司的系统。 然后问觉得遇到�
 铱云科技
 笔试题
 java 框架中的集合最优实现是什么？并说明原因？
+ Collection, Map -----
+ (Vector),ArrayList  ,LinkedList, (HashTable),HashMap,ConcurrentHashMap.
+ Vector 线程安全，但是慢，已过时。
+ ArrayList 线程安全，快。 作为Vector的替代。 如果需要线程安全，可以用工具类Collections 添加线程安全特性。
+ Collections.synchronizedList(new ArrayList());
+ HashTable 和 HashMap 的区别。
+ HashTable 线程安全，慢。 HashMap 线程不安全。快。推荐使用HashMap .线程安全可以通过Collections 实现。
+ HashMap 中允许key 或者value 为 null,  HashTable 中不允许。
+ 
+
 
 blockingQueue 的最佳实现是什么。
   LinkedBlockingQueue和 ArrayBlockingQueue 是 FIFO队列。 
