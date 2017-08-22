@@ -100,6 +100,8 @@ blockingQueue 的最佳实现是什么。
 
 
 threadLocal 的作用是什么？ 什么场景下使用ThreadLocal
+ ThreadLocak 主要用于通过线程封闭，来防止，单实例可变变量的访问和全局可变变量访问。
+ 一个经典场景是，用ThreadLocal  来获取JDBC Connection. 因为Connection 本身不是线程安全的。
 
 cookie 和 session 的作用和区别。 tomcat 中的  session 管理怎么实现的
 
