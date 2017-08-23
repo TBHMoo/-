@@ -212,6 +212,7 @@ public class staticMethod {
 }
 
 编译时报错， a变量未初始化。
+1。 Integer 初始状态为null. int 初始状态为 0
 
 
 
