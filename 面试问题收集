@@ -160,6 +160,60 @@ ReentrantLock  默认也是非公平锁，但是可以在声明时通过构造�
 对java 工程框架的了解程度不够， 算法基础还可以，但是深入了解算法面崩了。 
 问了个最长公共子序列问题，的状态转移方程是什么。
 
+请写出一个线程安全的单例类A
+
+内部类来做到延迟加载对象  effectiveJava 第一章
+
+public class Singleton{
+     private static class  SingletonHolder{
+          private final static Singleton instance = new Singleton();
+     }
+     
+     public static Singleton getInstance(){
+          return SingletonHolder.instance;
+     }
+}
+
+请写出下列程序的输出结果
+
+
+public class MyThread extends Thread{
+    public void run(){
+        System.out.println("test");
+    }
+
+    public static void main(String[] args) {
+        Thread t = new MyThread();
+        t.start();
+        System.out.println("main");
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("main2");
+    }
+}
+
+输出结果是 main  test main2
+1、线程的start() 方法，和run() 方法的区别 。  start() 方法会开启一个线程去执行，run()方法中的内容。  直接调用run() 方法，就是串行执行任务。
+2。线程的join() 方法。 在这里的main 方法中执行的话的意思就是 ，主线程等 t线程执行完，再执行后续的片段。 
+join（1小时） 方法的通俗解释就是 ，你去买东西，我在路上等你，你早来，我早走，你不来，我等了1小时之后走的意思。 如果不设置时间或者时间是0，
+代表你不来，我不走。
+
+以下这段代码有什么问题吗？ 如果有，是什么
+public class staticMethod {
+    public static void test(int i){}
+
+    public static void main(String[] args) {
+        Integer a ;
+        test(a);
+    }
+}
+
+编译时报错， a变量未初始化。
+
+
 
 
 
