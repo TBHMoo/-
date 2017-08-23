@@ -215,8 +215,111 @@ public class staticMethod {
 1。 Integer 初始状态为null. int 初始状态为 0
 
 
+下面这段代码有问题吗？ 如果有，是什么
+public class A{
+  public A(int i) {
 
+}
+}
 
+public class B extends A{
+
+  public B(int i) {
+
+}
+}
+
+1/两个类不能放到同一个java 文件中. 两个都是public . 
+2.A类没有默认构造方法
+
+给定一个字符串，如何转成整型
+
+private Integer toInteger(String str){
+        Integer sum = 0;
+        try {
+             sum = Integer.parseInt(str);
+             // sum  = Integer.valueOf(str);
+        }catch (NumberFormatException e){
+            System.out.println(e);
+        }
+        return sum;
+    }
+    
+    使用 Integer.parseInt() 或者 Integer.valueOf();
+    
+    
+使用数组实现栈。
+需要实现的方法有 
+pop() 弹出栈顶元素。
+push(E e) 入栈
+peek() 读取栈顶元素
+IsEmpty() 判断栈是否为空
+IsFull() 判断栈是否满
+
+1、首先需要考虑栈的初始化， 以及栈元素超出栈大小时候的扩容。
+2、更新栈的操作，需要同步。
+
+public class Stack<E> {
+  private Object[] stack;
+  private int index ;
+  private final static int INIT_SIZE = 2;
+  
+  /*
+  * 初始化栈,无参，有参
+  */
+
+ public Stack(){
+     stack = new Object[INIT_SIZE];
+     index = -1;
+ }
+ 
+ public Stack(int init_size){
+     stack = new Object[init_size];
+     index = -1;
+ }
+ 
+ /*
+ * push 方法,修改了栈，需要同步,需要考虑栈是否满了
+ */
+ public synchronized void push(E object){
+   if(isFull()){
+      Object[] temp = stack;
+      stack  = new Ojbect[stack.length * 2];
+      System.arraycopy(temp,0,stack,0,temp.length);
+   }
+   stack[++index] = object;
+ }
+ 
+ /*pop 方法，弹出栈顶元素，修改了栈，需要同步，需要考虑栈是否空了*/
+ public synchronized E pop(){
+   if(isEmpty()){
+      return null;
+   }
+   
+   E temp = peek();
+   stack[index--] = null;
+   return temp;
+ }
+ 
+ /*peek 方法，返回栈顶元素*/
+ public E peek(){
+   if(!isEmpty()){
+       return stack[index] ;
+ }
+ return null;
+ }
+ 
+ 
+ /*判断栈是否满了*/
+ public boolean isFull(){
+     return index >= stack.length-1;
+ }
+ /*判断栈是否空了*/
+ public boolean isEmpty(){
+    return index == -1;
+ }
+ 
+}
 
 
 
