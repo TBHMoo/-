@@ -1,0 +1,15 @@
+hashMap 的工作原理
+
+hashMap 和 hashtable 的区别
+hashMap 和 HashTable都实现了Map 接口， 都可以当做Map 使用。 它们之间的区别主要有：
+ 
+                                               HashMap                  hashTable                   concurrentHashMap
+ 线程安全性                                       非                       是                              是
+ 同步( synchronization )                          非 synchronized         是 synchronized                  
+ 速度（不需要同步，单线程情况下）                   快                      慢                          
+
+1、synchronized （同步锁） 意味着一次仅仅只有一个线程可以访问更改 hashTable。 就是说任何线程要更新 hashTable时要首先获得同步锁，
+其他线程必须要要等待同步锁被释放之后，才能再次获得同步锁更新HashTable
+2、HashMap 也可以通过 Map  m = Collections.synchronizeMap(hashMap) 来实现同步
+
+Java 5及以上，使用 concurrentHsahMap 替代 hashTable
