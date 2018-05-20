@@ -1,5 +1,19 @@
 hashMap 的工作原理
 
+你有使用过hashMap吗 ？ hashMap的特性， hashmap 没有使用 同步锁， synchronized 所以它很快，但是在多线程情况下多个线程同时达到负载因子 （0.75）重新扩容
+（翻倍）时，会出现竞态条件。 会有线程安全问题。
+
+hashMap 使用 hashing 的原理，我们使用 put(key ,value)存储对象到hashMap 中，使用 get(key) 从hashMap 中获取value.
+当使用put方法传递键和值时，优先会调用键的 hashCode()方法,返回的hashCode 用于确定 bucket位置存储Entry. 
+
+当两个对象的hashcode 相同时会发生什么，
+因为有相同的hashcode ,所以会得到相同的 bucket位置，出现冲突。 hashMap处理这种冲突的方式是，追加在链表后。
+
+如果两个键的hashCode 相同，如何获取值对象？
+找到bucket 位置之后调用 keys.equals()方法去找到链表中正确的节点。
+
+
+
 hashMap 和 hashtable 的区别
 hashMap 和 HashTable都实现了Map 接口， 都可以当做Map 使用。 它们之间的区别主要有：
  
