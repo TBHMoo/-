@@ -1,0 +1,20 @@
+DIG发货提醒定时邮件，使用到了redis 的集合.
+
+Redis的Set是string类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。
+
+Redis 中 集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O(1)。
+
+集合中最大的成员数为 232 - 1 (4294967295, 每个集合可存储40多亿个成员)。
+
+SADD key member1 [member2] 向集合添加一个或多个成员
+SREM key member1 [member2] 移除集合中一个或多个成员
+SISMEMBER key member 判断 member 元素是否是集合 key 的成员
+
+
+redis 127.0.0.1:6379> SADD myset1 "hello"
+(integer) 1
+redis 127.0.0.1:6379> SADD myset1 "world"
+(integer) 1
+redis 127.0.0.1:6379> SMEMBERS myset1
+1) "World"
+2) "Hello"
