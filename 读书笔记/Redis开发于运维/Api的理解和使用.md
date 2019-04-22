@@ -98,3 +98,17 @@ type key
   list
 
 ~~~
+
+### 数据结构和内部编码
+查看内部编码实现
+~~~
+> object encoding hello
+"embstr"
+> object encoding mylist
+"ziplist"
+~~~
+![Redis 中的数据结构](../../resources/WechatIMG3065.png)
+![Redis 中的数据结构和内部编码](../../resources/WechatIMG3066.png)
+
+### 单线程架构
+Redis使用了单线程架构和I/O多路复用模型来实现高性能的内存数据库服务。
