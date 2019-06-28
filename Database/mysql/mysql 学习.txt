@@ -1,0 +1,116 @@
+mysql  5.6 online ddl
+mysql 5.6根据 是否修改记录格式，把ddl 分成两类 rebuild ,no-rebuild。是否修改表结构
+
+1.rebuild  需要重建表
+
+optimize table(优化表), 添加索引，添加列，删除列，修改列 null/not null属性等
+2、no-rebuild  只需要修改表的元数据
+删除索引，修改列名，修改列默认值，修改列自增值等
+
+oline  ddl 分成三个阶段
+prepare, ddl执行，commit阶段
+
+rebuild 方式比 no-rebuild方式多了一个ddl执行阶段
+
+查看sql 状态
+select * from `information_schema`.processlist where id=655153301;
+
+查看所有在运行的sql
+select processlist;
+
+程序员笔记   网站
+
+第一个TIMESTAMP列之后的其他的TIMESTAMP类型的列，如果没有指定null属性，也没有指定默认值，那么该列会被自动加上DEFAULT '0000-00-00 00:00:00'属性。如果insert语句中没有为该列指定值，那么该列中插入'0000-00-00 00:00:00'，并且没有warning
+
+表中的第一个TIMESTAMP列，如果没有指定null属性或者没有指定默认值，也没有指定ON
+UPDATE语句。那么该列会自动被加上DEFAULT CURRENT_TIMESTAMP和ON UPDATE
+CURRENT_TIMESTAMP属性。
+
+mysql
+drop table ,如果一个表是没有查询的。 那么删除表动作会非常快。
+翔总说是 表级排他锁。
+
+删除一个大表的部分数据方案
+创建一个和新表一毛一样的表，然后把要保留的数据 复制到新表中，然后重命名。
+
+然后再删除旧表。 秒删。
+
+上面的方案，在执行前，问了下我们的我们的无敌无敌DBA大神 ，翔总
+
+翔总推荐了一个专业工具  percona-toolkit ，中的 pt-archiver
+
+不知道这是什么就去官网看了一下
+照着官网安装教程就安装了一下
+
+https://www.percona.com/doc/percona-toolkit/LATEST/installation.html
+Red Hat or CentOS 部分。
+顺利安装,然后找到yum 的安装目录。
+/etc/目录下，执行删除数据命令
+pt-archiver --source h=hostip,D=database_name,t=table_name --user=username --password=password --purge --where 'id<=10000'
+
+
+
+insert into XXX_table select * from XXX_table ;
+用于造大量测试数据。
+测试库，删除1000w 数据使用了 22h
+
+ pt-archiver --source h=hostip,D=database_name,t=table_name --user=username --password=password --purge    --where 'id<=37669832' --no-check-charset
+ --limit 1000 --commit-each
+ --progress 2000 --statistics
+
+在线修改表结构时， --no-delete  ，不删除原表
+
+pt-archiver 在测试环境执行成功，但是在阿里云上执行失败。
+报错 Can't use an undefined value as an ARRAY reference at /usr/bin/pt-archiver line 5411.
+
+pt-archiver 脚本是perl 写的，看不懂。
+
+这行报错是指有个文件没有权限读取所以开始一直以为是，生产上面和测试机上面的账号权限不同，导致，于是让翔总在 dba 使用的 linux 生产机上用root 执行
+依然报同样的错。
+                linux权限     mysql
+测试机   成功     root         公司集群
+生产机   失败     appadmin     阿里云
+
+于是提醒翔总提工单，给阿里云，阿里云回复。  有“隐藏参数”  不支持用 pt-archiver 归档数据。
+只能换方案，在阿里云社区搜索，数据归档。 https://yq.aliyun.com/articles/66831   赵老师不建议直接上自动存储过程。于是就写了一个得到要删除分区的语句拼接
+
+select concat('alter table cs_order drop partition `',t.partition_name,'`;')
+from information_schema.partitions t
+ where t.TABLE_SCHEMA= 'c9core'
+   and t.table_name= 'cs_order'
+   and t.PARTITION_ORDINAL_POSITION <= 2
+ order by t.partition_description asc
+ LIMIT 0,1000
+
+
+ 测试库往一个分区里面造了 800w 数据，用作删除。
+ insert into cs_order(order_time) select order_time from cs_order where order_time <'20160822';
+ 重复执行 n 次。 看到800w 数据了
+
+执行删除语句。 800w  删除只要4秒 。
+
+
+
+
+
+
+
+
+
+删除文件之前 先备份。
+
+
+#############################################################
+Lock wait timeout exceeded; try restarting transaction
+
+错误原因是 innoDB 默认锁等待超时时间是 50s，有的锁等待超时了。
+解决，
+1、可以加长这个时间
+my.ini文件：
+#innodb_lock_wait_timeout = 50
+-》
+innodb_lock_wait_timeout = 500
+
+
+2、避免事务时间过长。  （把接口调用方式改成了异步调用）
+update语句和 推送数据在一个事务中， update 语句执行完了 但是一直没有commit 掉，锁等待时间超时了。然后把 数据推送的接口改成了异步方式。
