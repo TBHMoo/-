@@ -27,3 +27,22 @@ hashMap 和 HashTable都实现了Map 接口， 都可以当做Map 使用。 它�
 2、HashMap 也可以通过 Map  m = Collections.synchronizeMap(hashMap) 来实现同步
 
 Java 5及以上，使用 concurrentHsahMap 替代 hashTable
+
+函数式编程
+一个输入，一个输出，数据不变性，多核高并发情况下
+
+hashmap, 扩容过程
+创建两倍大小的桶，然后把原来元素移到新桶中。
+
+
+kafka 存储机制 cluster ,broker, topic ,partition ,replication, ISR in_sync_Replication, customer, producer
+kafka
+
+ES  简单使用
+
+分布式事务
+事务消息，tcc数据一致性最高
+
+
+
+
