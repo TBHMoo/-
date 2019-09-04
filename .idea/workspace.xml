@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c9a249fa-c1fd-4c9a-9576-98c54a9e640f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/php/docker.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/分不清的东西/上海" beforeDir="false" afterPath="$PROJECT_DIR$/分不清的东西/上海" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="上海" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/分不清的东西/上海">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="301">
+              <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -28,8 +27,8 @@
         <entry file="file://$PROJECT_DIR$/php/docker.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="165">
-                <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+              <first_editor relative-caret-position="374">
+                <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
               </first_editor>
               <second_editor />
             </state>
@@ -39,7 +38,7 @@
       <file leaf-file-name="书单" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/分不清的东西/书单">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
+            <state relative-caret-position="595">
               <caret line="35" column="8" selection-start-line="35" selection-end-line="36" />
             </state>
           </provider>
@@ -63,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/分不清的东西/正则">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -77,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/分不清的东西/资源网址">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -86,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/分不清的东西/面试问题收集">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5882">
-              <caret line="346" column="5" lean-forward="true" selection-start-line="346" selection-start-column="5" selection-end-line="346" selection-end-column="5" />
+              <caret line="346" column="5" selection-start-line="346" selection-start-column="5" selection-end-line="346" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -95,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/分不清的东西/SpringBoot揭秘">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-end-line="4" />
+              <caret line="3" column="14" selection-start-line="3" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -143,7 +142,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="832" />
@@ -153,8 +152,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -210,6 +207,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,7 +313,8 @@
       <workItem from="1564735951656" duration="1168000" />
       <workItem from="1565247644711" duration="5171000" />
       <workItem from="1565769148217" duration="14000" />
-      <workItem from="1567390181632" duration="9248000" />
+      <workItem from="1567390181632" duration="11158000" />
+      <workItem from="1567579207670" duration="370000" />
     </task>
     <task id="LOCAL-00001" summary="暂存">
       <created>1555911982532</created>
@@ -341,10 +341,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76472000" />
+    <option name="totallyTimeSpent" value="78752000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="832" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="PlantUML" order="3" />
@@ -358,10 +358,10 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.31678832" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.47256857" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.47096774" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24855907" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25288185" />
       <window_info anchor="bottom" id="SonarLint" order="7" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -596,13 +596,13 @@
     <entry file="file://$PROJECT_DIR$/分不清的东西/SpringBoot揭秘">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-end-line="4" />
+          <caret line="3" column="14" selection-start-line="3" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/分不清的东西/书单">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
+        <state relative-caret-position="595">
           <caret line="35" column="8" selection-start-line="35" selection-end-line="36" />
         </state>
       </provider>
@@ -620,7 +620,7 @@
     <entry file="file://$PROJECT_DIR$/分不清的东西/正则">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -630,22 +630,22 @@
     <entry file="file://$PROJECT_DIR$/分不清的东西/资源网址">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/分不清的东西/面试问题收集">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5882">
-          <caret line="346" column="5" lean-forward="true" selection-start-line="346" selection-start-column="5" selection-end-line="346" selection-end-column="5" />
+          <caret line="346" column="5" selection-start-line="346" selection-start-column="5" selection-end-line="346" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/docker.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
-            <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <first_editor relative-caret-position="374">
+            <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
           </first_editor>
           <second_editor />
         </state>
@@ -653,8 +653,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/分不清的东西/上海">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="301">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
         </state>
       </provider>
     </entry>
