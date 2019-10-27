@@ -46,7 +46,8 @@ Innodb 通过主键聚集数据，如果没有定义主键， innodb 会选择�
 AUTO_INCREMENT Id  这种代理键的方式，在高并发插入争用的时候，可以考虑 innodb_autoinc_lock_mode 配置 。 数据库版本不支持 innodb_autoinc_lock_mode
 的话，升级到高版本。  朴实无华的方案。
 
-Mysql不能在索引中执行LIKE操作。
+Mysql不能在索引中执行LIKE操作。 精确匹配Like 'J%'可以
+如果查询中有某个列的范围查询，则(范围查询)右边所有列都无法使用索引优化查询。
 
 5.6 版本的MySQL， 在底层API中 加上关联， 索引条件推送。 
 
